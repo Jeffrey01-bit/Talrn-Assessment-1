@@ -13,7 +13,7 @@ export const allJobs = [
     title: "Senior Coldfusion Developer",
     experience: "7+ Years",
     tags: ["ColdFusi..", "MVC fram..", "SQL"],
-    location: "World Wide, Remote",
+    location: "USA, Remote",
     type: "Contract",
     datePosted: 5
   },
@@ -22,7 +22,7 @@ export const allJobs = [
     title: "Software Engineer",
     experience: "5+ Years",
     tags: ["SQL", "Azure", "Visual S.."],
-    location: "Worldwide, Remote",
+    location: "Canada, Remote",
     type: "Full Time",
     datePosted: 1
   },
@@ -40,7 +40,7 @@ export const allJobs = [
     title: "React Native Developer",
     experience: "4+ Years",
     tags: ["React Na..", "JavaScri..", "Rest API"],
-    location: "World Wide, Remote",
+    location: "UK, Remote",
     type: "Contract",
     datePosted: 3
   },
@@ -58,7 +58,7 @@ export const allJobs = [
     title: "Software Engineer",
     experience: "3+ Years",
     tags: ["Blockcha..", "smart co..", "EIPs"],
-    location: "Worldwide, Remote",
+    location: "Germany, Remote",
     type: "Full Time",
     datePosted: 15
   },
@@ -76,7 +76,7 @@ export const allJobs = [
     title: "DevOps Engineer",
     experience: "6+ Years",
     tags: ["Docker", "Kubernetes", "AWS"],
-    location: "Worldwide, Remote",
+    location: "Australia, Remote",
     type: "Full Time",
     datePosted: 2
   },
@@ -94,7 +94,7 @@ export const allJobs = [
     title: "Data Scientist",
     experience: "5+ Years",
     tags: ["Python", "ML", "TensorFlow"],
-    location: "World Wide, Remote",
+    location: "Netherlands, Remote",
     type: "Full Time",
     datePosted: 8
   },
@@ -112,7 +112,7 @@ export const allJobs = [
     title: "Full Stack Developer",
     experience: "6+ Years",
     tags: ["React", "Node.js", "PostgreSQL"],
-    location: "Worldwide, Remote",
+    location: "USA, Remote",
     type: "Full Time",
     datePosted: 7
   },
@@ -121,7 +121,7 @@ export const allJobs = [
     title: "Cloud Architect",
     experience: "8+ Years",
     tags: ["AWS", "Terraform", "Microser.."],
-    location: "World Wide, Remote",
+    location: "Canada, Remote",
     type: "Contract",
     datePosted: 12
   },
@@ -139,7 +139,7 @@ export const allJobs = [
     title: "QA Automation Engineer",
     experience: "3+ Years",
     tags: ["Selenium", "Java", "TestNG"],
-    location: "Worldwide, Remote",
+    location: "UK, Remote",
     type: "Contract",
     datePosted: 9
   },
@@ -157,7 +157,7 @@ export const allJobs = [
     title: "Cybersecurity Specialist",
     experience: "7+ Years",
     tags: ["Security", "Penetrat..", "CISSP"],
-    location: "World Wide, Remote",
+    location: "USA, Remote",
     type: "Full Time",
     datePosted: 11
   },
@@ -166,7 +166,7 @@ export const allJobs = [
     title: "Product Manager",
     experience: "6+ Years",
     tags: ["Agile", "Roadmap", "Analytics"],
-    location: "Worldwide, Remote",
+    location: "Canada, Remote",
     type: "Full Time",
     datePosted: 5
   },
@@ -184,7 +184,7 @@ export const allJobs = [
     title: "Blockchain Developer",
     experience: "3+ Years",
     tags: ["Solidity", "Web3", "Ethereum"],
-    location: "World Wide, Remote",
+    location: "Germany, Remote",
     type: "Contract",
     datePosted: 6
   },
@@ -193,7 +193,7 @@ export const allJobs = [
     title: "Database Administrator",
     experience: "5+ Years",
     tags: ["MySQL", "PostgreSQL", "MongoDB"],
-    location: "Worldwide, Remote",
+    location: "UK, Remote",
     type: "Full Time",
     datePosted: 14
   },
@@ -211,7 +211,7 @@ export const allJobs = [
     title: "Site Reliability Engineer",
     experience: "6+ Years",
     tags: ["SRE", "Monitoring", "Incident.."],
-    location: "World Wide, Remote",
+    location: "USA, Remote",
     type: "Full Time",
     datePosted: 1
   },
@@ -220,7 +220,7 @@ export const allJobs = [
     title: "Java Developer",
     experience: "5+ Years",
     tags: ["Java", "Spring", "Hibernate"],
-    location: "Worldwide, Remote",
+    location: "Canada, Remote",
     type: "Contract",
     datePosted: 8
   },
@@ -238,7 +238,7 @@ export const allJobs = [
     title: "Scrum Master",
     experience: "4+ Years",
     tags: ["Agile", "Scrum", "Jira"],
-    location: "World Wide, Remote",
+    location: "UK, Remote",
     type: "Contract",
     datePosted: 13
   },
@@ -247,7 +247,7 @@ export const allJobs = [
     title: "Business Analyst",
     experience: "5+ Years",
     tags: ["Requireme..", "Process", "Stakehol.."],
-    location: "Worldwide, Remote",
+    location: "Germany, Remote",
     type: "Full Time",
     datePosted: 2
   },
@@ -265,7 +265,7 @@ export const allJobs = [
     title: "Network Engineer",
     experience: "6+ Years",
     tags: ["Cisco", "Routing", "Switching"],
-    location: "World Wide, Remote",
+    location: "USA, Remote",
     type: "Full Time",
     datePosted: 4
   },
@@ -274,7 +274,7 @@ export const allJobs = [
     title: "AI Research Engineer",
     experience: "7+ Years",
     tags: ["AI", "Research", "Deep Lea.."],
-    location: "Worldwide, Remote",
+    location: "Canada, Remote",
     type: "Full Time",
     datePosted: 9
   },
@@ -298,11 +298,11 @@ export const techOptions = [
 ];
 
 export const locationOptions = [
-  { name: "Worldwide", count: 29 },
-  { name: "World Wide", count: 24 },
-  { name: "India", count: 5 },
-  { name: "world wide", count: 4 },
-  { name: "worldwide", count: 1 }
+  { name: "USA", count: 8 },
+  { name: "India", count: 12 },
+  { name: "Canada", count: 6 },
+  { name: "UK", count: 4 },
+  { name: "Germany", count: 2 }
 ];
 
 export const allTechOptions = [

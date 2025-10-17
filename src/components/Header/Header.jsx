@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Header.css';
 
 const Header = () => {
@@ -22,8 +23,8 @@ const Header = () => {
               <a href="#" className="dropdown-item">View all</a>
             </div>
           </div>
-          <a href="#" className="nav-link">Find Dev</a>
-          <a href="https://augmntx.com/remote-jobs" target="_blank" rel="noopener noreferrer" className="nav-link">Remote Jobs</a>
+          <Link to="/find-dev" className="nav-link">Find Dev</Link>
+          <Link to="/" className="nav-link">Remote Jobs</Link>
           <a href="https://augmntx.com/hire" className="hire-btn">Hire Dev</a>
           <a href="https://augmntx.com/admin/auth/login" target="_blank" rel="noopener noreferrer" className="nav-link">Login</a>
         </nav>

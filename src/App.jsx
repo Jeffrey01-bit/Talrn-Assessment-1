@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import JobCard from './components/JobCard/JobCard';
 import Sidebar from './components/Sidebar/Sidebar';
 import Modal from './components/Modal/Modal';
+import FindDev from './components/FindDev/FindDev';
 import './styles/variables.css';
 import './styles/global.css';
 import { allJobs } from './data/jobsData';
 
-function App() {
+const HomePage = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [dateFilter, setDateFilter] = useState('all');
   const [selectedTech, setSelectedTech] = useState([]);
@@ -72,8 +74,6 @@ function App() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-
-
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -121,9 +121,7 @@ function App() {
   const displayedJobs = filteredJobs.slice(0, visibleJobs);
 
   return (
-    <div>
-      <Header />
-
+    <>
       <div className="main-container">
         <Sidebar 
           filteredJobsCount={filteredJobs.length}
@@ -186,8 +184,6 @@ function App() {
           )}
         </main>
       </div>
-
-      <Footer />
 
       <button className={`scroll-to-top ${isScrolled ? 'scrolled' : ''}`} onClick={scrollToTop}>
         ↑
@@ -287,7 +283,22 @@ function App() {
           </div>
         </div>
       )}
-    </div>
+    </>
+  );
+};
+
+function App() {
+  return (
+    <Router>
+      <div>
+        <Header />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/find-dev" element={<FindDev />} />
+        </Routes>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 

@@ -6,7 +6,9 @@ const JobCard = ({ job, onShare }) => {
     <div className="job-card">
       <div className="job-header">
         <div>
-          <h3 className="job-title">{job.title}</h3>
+          <h3 className="job-title">
+            <a href="./job-detail.html" target="_blank" rel="noopener noreferrer">{job.title}</a>
+          </h3>
           <div className="job-experience">{job.experience}</div>
         </div>
         <button className="share-btn" onClick={() => onShare(job.title)}>
@@ -25,7 +27,7 @@ const JobCard = ({ job, onShare }) => {
       <div className="progress-bar"></div>
       
       <div className="auth-links">
-        <a href="#">Login</a> or <a href="#">sign up</a> to know your profile Match %
+        <a href="https://augmntx.com/admin/auth/login" target="_blank" rel="noopener noreferrer">Login</a> or <a href="https://augmntx.com/join" target="_blank" rel="noopener noreferrer">sign up</a> to know your profile Match %
       </div>
       
       <div className="job-footer">

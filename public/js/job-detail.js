@@ -148,10 +148,79 @@ function initJobDetail() {
   } else {
     document.title = '404 - Job Not Found';
     document.getElementById('job-content').innerHTML = `
-      <div style="text-align: center; padding: 4rem 2rem; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;">
-        <h1 style="font-size: 3rem; color: #374151; margin-bottom: 1rem;">404</h1>
-        <h2 style="font-size: 1.5rem; color: #6b7280; margin-bottom: 1rem;">Page Not Found</h2>
-        <p style="color: #9ca3af;">Job details for "${jobTitle}" are not available.</p>
+      <div class="job-detail-page">
+        <header class="header">
+          <div class="header-content">
+            <div class="logo">
+              <img src="/images/AugmntX-Logo.png" alt="AugmntX" style="height: 40px" />
+            </div>
+            <nav class="nav">
+              <a href="https://augmntx.com/why" target="_blank" rel="noopener noreferrer" class="nav-link">Why</a>
+              <div class="industries-dropdown">
+                <a href="#" class="nav-link">Industries ▼</a>
+                <div class="dropdown-menu">
+                  <a href="#" class="dropdown-item">Travel</a>
+                  <a href="#" class="dropdown-item">Automotive</a>
+                  <a href="#" class="dropdown-item">Banking</a>
+                </div>
+              </div>
+              <a href="#" class="nav-link">Find Dev</a>
+              <a href="https://augmntx.com/remote-jobs" target="_blank" rel="noopener noreferrer" class="nav-link">Remote Jobs</a>
+              <a href="https://augmntx.com/hire" class="hire-btn">Hire Dev</a>
+              <a href="https://augmntx.com/admin/auth/login" target="_blank" rel="noopener noreferrer" class="nav-link">Login</a>
+            </nav>
+          </div>
+        </header>
+        
+        <div class="breadcrumb">
+          ← <a href="#" onclick="window.close()">Home</a> / <a href="#" onclick="window.close()">Jobs</a> / 404
+        </div>
+        
+        <div style="text-align: center; padding: 4rem 2rem; min-height: 50vh; display: flex; flex-direction: column; justify-content: center;">
+          <h1 style="font-size: 3rem; color: #374151; margin-bottom: 1rem;">404</h1>
+          <h2 style="font-size: 1.5rem; color: #6b7280; margin-bottom: 1rem;">Page Not Found</h2>
+          <p style="color: #9ca3af;">Job details for "${jobTitle}" are not available.</p>
+        </div>
+        
+        <footer class="footer">
+          <div class="footer-content">
+            <div class="footer-main">
+              <div class="footer-section">
+                <div class="footer-logo">
+                  <img src="/images/augmntxlogo.png" alt="AugmntX" style="height: 40px" />
+                </div>
+              </div>
+              <div class="footer-section">
+                <h3>Information</h3>
+                <ul>
+                  <li><a href="#">About Us</a></li>
+                  <li><a href="#">Corporate Information</a></li>
+                </ul>
+              </div>
+              <div class="footer-section">
+                <h3>For Developers</h3>
+                <ul>
+                  <li><a href="#">Browse Jobs</a></li>
+                  <li><a href="#">Developer Resources</a></li>
+                </ul>
+              </div>
+              <div class="footer-section">
+                <h3>Support</h3>
+                <ul>
+                  <li><a href="#">Help Center</a></li>
+                  <li><a href="#">Contact Us</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="footer-bottom">
+              <p>&copy; 2024 AugmntX. All rights reserved.</p>
+              <div class="social-links">
+                <a href="#" aria-label="LinkedIn">LinkedIn</a>
+                <a href="#" aria-label="Twitter">Twitter</a>
+              </div>
+            </div>
+          </div>
+        </footer>
       </div>
     `;
   }

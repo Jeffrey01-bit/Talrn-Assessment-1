@@ -49,11 +49,11 @@ body {
 }
 
 .nav-link:hover {
-  color: #4f46e5;
+  color: #007bff;
 }
 
 .hire-btn {
-  background: #4f46e5;
+  background: #007bff;
   color: white;
   padding: 0.5rem 1rem;
   border-radius: 6px;
@@ -61,7 +61,7 @@ body {
 }
 
 .hire-btn:hover {
-  background: #3730a3;
+  background: #0056b3;
 }
 
 .industries-dropdown {
@@ -104,7 +104,7 @@ body {
 }
 
 .breadcrumb a {
-  color: #4f46e5;
+  color: #007bff;
   text-decoration: none;
 }
 
@@ -157,10 +157,13 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  width: 100%;
 }
 
 .skills-content {
   flex: 1;
+  min-width: 0;
+  max-width: calc(100% - 150px);
 }
 
 .skills-content h3 {
@@ -173,6 +176,7 @@ body {
   display: flex;
   gap: 0.5rem;
   flex-wrap: wrap;
+  min-width: 0;
 }
 
 .skill-tag {
@@ -215,7 +219,7 @@ body {
 }
 
 .apply-btn-sidebar {
-  background: #4f46e5;
+  background: #007bff;
   color: white;
   border: none;
   padding: 0.5rem 1rem;
@@ -226,7 +230,7 @@ body {
 }
 
 .apply-btn-sidebar:hover {
-  background: #3730a3;
+  background: #0056b3;
 }
 
 .description-section h3 {
@@ -263,7 +267,7 @@ body {
 }
 
 .apply-btn {
-  background: #4f46e5;
+  background: #007bff;
   color: white;
   border: none;
   padding: 0.75rem 2rem;
@@ -274,7 +278,7 @@ body {
 }
 
 .apply-btn:hover {
-  background: #3730a3;
+  background: #0056b3;
 }
 
 .bottom-section {

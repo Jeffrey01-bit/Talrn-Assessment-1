@@ -1,146 +1,98 @@
 .footer {
-  background: #000000;
-  color: var(--bs-white);
-  padding: 60px 0 30px;
-  margin-top: 60px;
+  background: #1a1a1a;
+  color: white;
+  padding: 40px 20px 20px;
+  margin-top: auto;
 }
 
 .footer-content {
-  max-width: 1400px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
 }
 
 .footer-main {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 60px;
-  margin-bottom: 40px;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 30px;
 }
 
 .footer-section h3 {
-  font-size: 1.2rem;
-  margin-bottom: 20px;
-  color: var(--bs-white);
+  margin-bottom: 15px;
+  font-size: 16px;
+  font-weight: 600;
 }
 
 .footer-section ul {
   list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .footer-section ul li {
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 
 .footer-section ul li a {
-  color: var(--bs-gray-400);
+  color: #ccc;
   text-decoration: none;
-  font-size: 0.9rem;
+  transition: color 0.3s;
 }
 
 .footer-section ul li a:hover {
-  color: var(--bs-white);
+  color: white;
 }
 
 .footer-logo {
-  font-size: 2rem;
-  font-weight: 700;
-  color: var(--bs-white);
   margin-bottom: 20px;
 }
 
 .google-play-btn {
   display: inline-block;
-  margin-top: 20px;
-  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.google-play-btn:hover {
+  opacity: 0.8;
 }
 
 .footer-bottom {
-  border-top: 1px solid var(--bs-gray-700);
+  border-top: 1px solid #333;
   padding-top: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: var(--bs-gray-400);
-  font-size: 0.9rem;
 }
 
-.footer-links {
+.footer-bottom p {
+  margin: 0;
+  color: #ccc;
+}
+
+.social-links {
   display: flex;
-  gap: 30px;
+  gap: 20px;
 }
 
-.footer-links a {
-  color: var(--bs-gray-400);
+.social-links a {
+  color: #ccc;
   text-decoration: none;
+  transition: color 0.3s;
 }
 
-.footer-links a:hover {
-  color: var(--bs-white);
+.social-links a:hover {
+  color: white;
 }
 
-/* Mobile Responsive Styles */
 @media (max-width: 768px) {
-  .footer {
-    padding: 40px 0 20px;
-    margin-top: 40px;
-  }
-
-  .footer-content {
-    padding: 0 15px;
-  }
-
   .footer-main {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 30px;
-    margin-bottom: 30px;
   }
-
-  .footer-section h3 {
-    font-size: 1.1rem;
-    margin-bottom: 15px;
-  }
-
-  .footer-section ul li {
-    margin-bottom: 10px;
-  }
-
-  .footer-section ul li a {
-    font-size: 0.85rem;
-  }
-
+  
   .footer-bottom {
     flex-direction: column;
     gap: 15px;
     text-align: center;
-    font-size: 0.8rem;
-  }
-
-  .footer-links {
-    gap: 20px;
-  }
-}
-
-@media (max-width: 480px) {
-  .footer-main {
-    grid-template-columns: 1fr;
-    gap: 25px;
-  }
-
-  .footer-section:first-child {
-    text-align: center;
-  }
-
-  .footer-logo img {
-    height: 35px !important;
-  }
-
-  .google-play-btn img {
-    height: 35px !important;
-  }
-
-  .footer-links {
-    flex-direction: column;
-    gap: 10px;
   }
 }

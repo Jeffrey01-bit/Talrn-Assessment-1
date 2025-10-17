@@ -22,42 +22,46 @@ const Footer = () => {
               <li><a href="#">Corporate Information</a></li>
               <li><a href="#">Press</a></li>
               <li><a href="#">Careers</a></li>
-              <li><a href="#">Blog</a></li>
-              <li><a href="#">Contact Us</a></li>
-              <li><a href="#">Tech Stack</a></li>
             </ul>
           </div>
           
           <div className="footer-section">
-            <h3>AugmntX</h3>
+            <h3>For Developers</h3>
             <ul>
-              <li><a href="#">View Profiles</a></li>
-              <li><a href="#">Discover</a></li>
-              <li><a href="#">On Demand Talent</a></li>
+              <li><a href="#">Browse Jobs</a></li>
+              <li><a href="#">Developer Resources</a></li>
+              <li><a href="#">Salary Guide</a></li>
+              <li><a href="#">Interview Prep</a></li>
+            </ul>
+          </div>
+          
+          <div className="footer-section">
+            <h3>For Companies</h3>
+            <ul>
+              <li><a href="#">Hire Developers</a></li>
+              <li><a href="#">Post a Job</a></li>
               <li><a href="#">Pricing</a></li>
-              <li><a href="#">Augmentation Data</a></li>
-              <li><a href="#">Status</a></li>
-              <li><a href="#">Email Opt-Out</a></li>
+              <li><a href="#">Enterprise</a></li>
             </ul>
           </div>
           
           <div className="footer-section">
-            <h3>Vendor</h3>
+            <h3>Support</h3>
             <ul>
-              <li><a href="#">Sign Up</a></li>
-              <li><a href="#">Vendor Login</a></li>
-              <li><a href="#">Post Job</a></li>
-              <li><a href="#">Remote Jobs</a></li>
-              <li><a href="#">Resources</a></li>
+              <li><a href="#">Help Center</a></li>
+              <li><a href="#">Contact Us</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Terms of Service</a></li>
             </ul>
           </div>
         </div>
         
         <div className="footer-bottom">
-          <div>© 2022 - 2025 AugmntX - Labor Omnia Vincit ⚡ by <a href="#" style={{color: 'var(--bs-primary)'}}>SuperLabs</a></div>
-          <div className="footer-links">
-            <a href="#">Terms of Use</a>
-            <a href="#">Privacy Policy</a>
+          <p>&copy; 2024 AugmntX. All rights reserved.</p>
+          <div className="social-links">
+            <a href="#" aria-label="LinkedIn">LinkedIn</a>
+            <a href="#" aria-label="Twitter">Twitter</a>
+            <a href="#" aria-label="GitHub">GitHub</a>
           </div>
         </div>
       </div>

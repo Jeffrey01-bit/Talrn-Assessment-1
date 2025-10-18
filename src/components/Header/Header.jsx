@@ -25,7 +25,7 @@ const Header = () => {
           </div>
           <Link to="/find-dev" className="nav-link">Find Dev</Link>
           <Link to="/" className="nav-link">Remote Jobs</Link>
-          <a href="https://augmntx.com/hire" className="hire-btn">Hire Dev</a>
+          <a href="https://augmntx.com/hire" className="nav-link hire-dev-btn">Hire Dev</a>
           <a href="https://augmntx.com/admin/auth/login" target="_blank" rel="noopener noreferrer" className="nav-link">Login</a>
         </nav>
       </div>

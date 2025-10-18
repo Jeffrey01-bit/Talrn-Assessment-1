@@ -6,6 +6,7 @@ import JobCard from './components/JobCard/JobCard';
 import Sidebar from './components/Sidebar/Sidebar';
 import Modal from './components/Modal/Modal';
 import FindDev from './components/FindDev/FindDev';
+import DeveloperProfile from './components/DeveloperProfile/DeveloperProfile';
 import './styles/variables.css';
 import './styles/global.css';
 import { allJobs } from './data/jobsData';
@@ -295,6 +296,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/find-dev" element={<FindDev />} />
+          <Route path="/developer/:id" element={<DeveloperProfile />} />
         </Routes>
         <Footer />
       </div>

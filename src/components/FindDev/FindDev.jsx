@@ -1,11 +1,44 @@
 import React, { useState, useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import './FindDev.css';
 
 const FindDev = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
   const [isScrolled, setIsScrolled] = useState(false);
   const [showContactOptions, setShowContactOptions] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
+  const [skillFilter, setSkillFilter] = useState('');
+  const [selectedSkills, setSelectedSkills] = useState([]);
+  
+  const handleSkillClick = (e, skillName) => {
+    e.stopPropagation();
+    if (!selectedSkills.includes(skillName)) {
+      const newSkills = [...selectedSkills, skillName];
+      setSelectedSkills(newSkills);
+      updateURL(newSkills);
+    }
+  };
+  
+  const removeSkill = (skillToRemove) => {
+    const newSkills = selectedSkills.filter(skill => skill !== skillToRemove);
+    setSelectedSkills(newSkills);
+    updateURL(newSkills);
+  };
+  
+  const updateURL = (skills) => {
+    if (skills.length > 0) {
+      navigate(`/find-dev?skills=${skills.map(s => encodeURIComponent(s)).join(',')}`);
+    } else {
+      navigate('/find-dev');
+    }
+  };
+
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,19 +48,46 @@ const FindDev = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const skill = params.get('skill');
+    const skills = params.get('skills');
+    
+    if (skills) {
+      const skillArray = skills.split(',').map(s => decodeURIComponent(s));
+      setSelectedSkills(skillArray);
+      setSkillFilter(skillArray.join(', '));
+    } else if (skill) {
+      setSelectedSkills([skill]);
+      setSkillFilter(skill);
+    } else {
+      setSelectedSkills([]);
+      setSkillFilter('');
+    }
+  }, [location.search]);
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const getCurrentPageDevelopers = () => {
-    const filteredDevs = allDevelopers.filter(dev => 
-      searchTerm === '' || 
-      dev.skills.some(skill => skill.toLowerCase().includes(searchTerm.toLowerCase())) ||
-      dev.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      dev.title.toLowerCase().includes(searchTerm.toLowerCase())
-    );
+    const filteredDevs = allDevelopers.filter(dev => {
+      const matchesSearch = searchTerm === '' || 
+        dev.skills.some(skill => skill.toLowerCase().includes(searchTerm.toLowerCase())) ||
+        dev.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        dev.title.toLowerCase().includes(searchTerm.toLowerCase());
+      
+      const matchesSkills = selectedSkills.length === 0 || 
+        selectedSkills.some(selectedSkill => 
+          dev.skills.some(devSkill => 
+            devSkill.toLowerCase().includes(selectedSkill.toLowerCase())
+          )
+        );
+      
+      return matchesSearch && matchesSkills;
+    });
     
-    const itemsPerPage = 5;
+    const itemsPerPage = 8;
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
     return filteredDevs.slice(startIndex, endIndex);
@@ -69,6 +129,30 @@ const FindDev = () => {
       industries: ['Automobile', 'Communications and Media']
     },
     {
+      id: 'AXO50419',
+      name: 'Harsh H',
+      title: 'Full Stack Developer, 5 years',
+      skills: ['React.js', 'Trello', 'PostgreSQL'],
+      description: 'Skilled Full Stack Developer with expertise in React.js, Next.js, Node.js, and n8n workflow automation. Proficient in building scalable applications, integrating third-pa...',
+      industries: ['Business Productivity', 'SaaS', 'Social Media']
+    },
+    {
+      id: 'AXO30078',
+      name: 'Harshini H',
+      title: 'Senior ColdFusion Develo..., 7 years',
+      skills: ['ColdFusion', 'SQL Server', 'Agile Sc...'],
+      description: 'Senior ColdFusion Developer skilled in ColdFusion (legacy & latest versions), SQL Server, and front-end technologies including HTML5, CSS, JavaScript, jQuery, Bootstrap. ...',
+      industries: ['Legacy Systems', 'Enterprise']
+    },
+    {
+      id: 'AXF23841',
+      name: 'Solanki D',
+      title: 'Drupal Developer, 3 years',
+      skills: ['Drupal', 'PHP', 'MySQL'],
+      description: 'Drupal developer proficient in PHP, MySQL, HTML, CSS, and JavaScript. Skilled in building and customizing Drupal sites, including custom module development, theming, and ...',
+      industries: ['Web Development', 'CMS']
+    },
+    {
       id: 'AXO2385',
       name: 'Borhade S',
       title: 'PHP Laravel Developer, 7 years',
@@ -80,7 +164,7 @@ const FindDev = () => {
       id: 'AXF171',
       name: 'Kumar S',
       title: 'Front End Developer, 12 years',
-      skills: ['PHP', 'JavaScript', 'xamp'],
+      skills: ['JavaScript', 'HTML', 'CSS'],
       description: 'A dedicated team player with strong interpersonal, organizational and communication skills. Capacity to handle challenging responsibilities...',
       industries: ['Ecommerce', 'Fintech']
     },
@@ -88,7 +172,7 @@ const FindDev = () => {
       id: 'AXO2617',
       name: 'Daudia K',
       title: 'Senior React Native ..., 11 years',
-      skills: ['SwiftUI', 'Xcode', 'Git'],
+      skills: ['React', 'JavaScript', 'Node.js'],
       description: 'A seasoned mobile app developer with over 11 years of experience delivering high-quality, scalable solutions. Specialized in React Native fo...',
       industries: ['Ecommerce', 'Finance', 'Food Delivery', 'Healthcare']
     },
@@ -120,7 +204,7 @@ const FindDev = () => {
       id: 'AXO2921',
       name: 'Maria R',
       title: 'UI/UX Designer, 5 years',
-      skills: ['Figma', 'Adobe XD', 'Prototyping'],
+      skills: ['Bootstrap', 'CSS', 'HTML'],
       description: 'Creative UI/UX designer focused on user-centered design principles. Experience in creating intuitive interfaces for web and mobile applications...',
       industries: ['Design', 'Mobile Apps']
     },
@@ -128,7 +212,7 @@ const FindDev = () => {
       id: 'AXO3022',
       name: 'Alex T',
       title: 'Data Scientist, 9 years',
-      skills: ['Python', 'TensorFlow', 'SQL'],
+      skills: ['Python', 'Django', 'PostgreSQL'],
       description: 'Data scientist with strong background in machine learning and statistical analysis. Expertise in building predictive models and data pipelines...',
       industries: ['Analytics', 'AI/ML']
     },
@@ -136,7 +220,7 @@ const FindDev = () => {
       id: 'AXO3123',
       name: 'John D',
       title: 'Backend Developer, 5 years',
-      skills: ['Node.js', 'Express', 'MySQL'],
+      skills: ['Node.js', 'JavaScript', 'MongoDB'],
       description: 'Experienced backend developer specializing in scalable server-side applications. Expert in API development and database optimization...',
       industries: ['Web Development', 'API Services']
     },
@@ -144,7 +228,7 @@ const FindDev = () => {
       id: 'AXO3224',
       name: 'Lisa W',
       title: 'Mobile Developer, 6 years',
-      skills: ['Flutter', 'Dart', 'Firebase'],
+      skills: ['React', 'JavaScript', 'CSS'],
       description: 'Mobile app developer with expertise in cross-platform development. Specialized in creating high-performance mobile applications...',
       industries: ['Mobile Apps', 'Cross-platform']
     },
@@ -152,7 +236,7 @@ const FindDev = () => {
       id: 'AXO3325',
       name: 'Mike R',
       title: 'Cloud Architect, 10 years',
-      skills: ['Azure', 'Terraform', 'Docker'],
+      skills: ['AWS', 'Nginx', 'Docker'],
       description: 'Senior cloud architect with extensive experience in designing and implementing cloud infrastructure solutions...',
       industries: ['Cloud Computing', 'Infrastructure']
     },
@@ -160,7 +244,7 @@ const FindDev = () => {
       id: 'AXO3426',
       name: 'Emma S',
       title: 'QA Engineer, 4 years',
-      skills: ['Selenium', 'Jest', 'Cypress'],
+      skills: ['JavaScript', 'jQuery', 'HTML'],
       description: 'Quality assurance engineer focused on automated testing and continuous integration. Expert in test automation frameworks...',
       industries: ['Testing', 'Quality Assurance']
     },
@@ -168,9 +252,89 @@ const FindDev = () => {
       id: 'AXO3527',
       name: 'Ryan P',
       title: 'Security Engineer, 8 years',
-      skills: ['Cybersecurity', 'Penetration Testing', 'OWASP'],
+      skills: ['Checkmk', 'Python', 'AWS'],
       description: 'Cybersecurity specialist with focus on application security and vulnerability assessment. Expert in security best practices...',
       industries: ['Cybersecurity', 'Risk Management']
+    },
+    {
+      id: 'AXO3628',
+      name: 'Anna K',
+      title: 'Frontend Developer, 5 years',
+      skills: ['React', 'Bootstrap', 'CSS'],
+      description: 'Frontend developer with expertise in modern JavaScript frameworks and responsive design...',
+      industries: ['Web Development', 'UI/UX']
+    },
+    {
+      id: 'AXO3729',
+      name: 'Tom B',
+      title: 'Backend Engineer, 7 years',
+      skills: ['Python', 'Django', 'PostgreSQL'],
+      description: 'Backend engineer specializing in scalable web applications and database optimization...',
+      industries: ['Web Services', 'Database']
+    },
+    {
+      id: 'AXO3830',
+      name: 'Sophie L',
+      title: 'Product Manager, 6 years',
+      skills: ['OrientDB', 'MongoDB', 'Python'],
+      description: 'Product manager with experience in leading cross-functional teams and product strategy...',
+      industries: ['Product Management', 'Strategy']
+    },
+    {
+      id: 'AXO3931',
+      name: 'James H',
+      title: 'DevOps Specialist, 9 years',
+      skills: ['AWS', 'Nginx', 'Docker'],
+      description: 'DevOps specialist with expertise in CI/CD pipelines and container orchestration...',
+      industries: ['DevOps', 'Cloud Infrastructure']
+    },
+    {
+      id: 'AXO4032',
+      name: 'Rachel M',
+      title: 'Data Analyst, 4 years',
+      skills: ['Python', 'PostgreSQL', 'Django'],
+      description: 'Data analyst with strong skills in data visualization and statistical analysis...',
+      industries: ['Data Analytics', 'Business Intelligence']
+    },
+    {
+      id: 'AXO4133',
+      name: 'Kevin W',
+      title: 'Mobile Developer, 8 years',
+      skills: ['React', 'JavaScript', 'Node.js'],
+      description: 'iOS developer with extensive experience in native mobile app development...',
+      industries: ['Mobile Development', 'iOS']
+    },
+    {
+      id: 'AXO4234',
+      name: 'Nina R',
+      title: 'UX Designer, 6 years',
+      skills: ['Bootstrap', 'jQuery', 'CSS'],
+      description: 'UX designer focused on creating intuitive user experiences and conducting user research...',
+      industries: ['Design', 'User Experience']
+    },
+    {
+      id: 'AXO4335',
+      name: 'Chris T',
+      title: 'Full Stack Developer, 7 years',
+      skills: ['JavaScript', 'React', 'Node.js'],
+      description: 'Full stack developer with expertise in modern web technologies and scalable applications...',
+      industries: ['Web Development', 'Full Stack']
+    },
+    {
+      id: 'AXO4436',
+      name: 'Maya S',
+      title: 'Machine Learning Engineer, 5 years',
+      skills: ['Python', 'Django', 'MongoDB'],
+      description: 'ML engineer specializing in building and deploying machine learning models...',
+      industries: ['AI/ML', 'Data Science']
+    },
+    {
+      id: 'AXO4537',
+      name: 'Daniel K',
+      title: 'Cloud Engineer, 9 years',
+      skills: ['AWS', 'Nginx', 'PostgreSQL'],
+      description: 'Cloud engineer with expertise in multi-cloud architectures and infrastructure automation...',
+      industries: ['Cloud Computing', 'Infrastructure']
     }
   ];
 
@@ -198,6 +362,20 @@ const FindDev = () => {
         </aside>
 
         <main className="main-content">
+          {selectedSkills.length > 0 && (
+            <div className="filter-header">
+              <h1>Hire Talents with skills in <span className="skill-highlight">{selectedSkills.join(', ')}</span></h1>
+              <div className="selected-skills">
+                {selectedSkills.map((skill, index) => (
+                  <span key={index} className="skill-filter-tag">
+                    {skill}
+                    <button onClick={() => removeSkill(skill)} className="remove-skill">×</button>
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
+          
           <div className="search-section">
             <input 
               type="text" 
@@ -210,21 +388,19 @@ const FindDev = () => {
 
           <div className="developers-grid">
             {getCurrentPageDevelopers().map((dev) => (
-              <div key={dev.id} className="developer-card">
+              <div key={dev.id} className="developer-card" onClick={() => window.location.href = `/developer/${dev.id}`} style={{cursor: 'pointer'}}>
                 <div className="dev-header">
                   <div className="dev-profile">
-                    <img src="/images/noimage.jpg" alt={dev.name} className="dev-avatar" />
-                    <div className="augmntx-logo">
-                      <span>AugmntX</span>
-                      <small>Resource Profile</small>
-                    </div>
+                    <img src={['Lalvani', 'Daudia', 'Fifadra', 'Maria', 'Alex', 'John', 'Rachel'].includes(dev.name.split(' ')[0]) ? '/images/noimage.jpg' : `https://randomuser.me/api/portraits/${['Sarah', 'Lisa', 'Emma', 'Sophie', 'Anna', 'Nina', 'Maya'].includes(dev.name.split(' ')[0]) ? 'women' : 'men'}/${Math.abs(dev.name.split('').reduce((a, b) => a + b.charCodeAt(0), 0)) % 100}.jpg`} alt={dev.name} className="dev-avatar" />
                   </div>
                   <div className="dev-info">
                     <h3>{dev.name} <span className="dev-id">{dev.id}</span></h3>
                     <p className="dev-title">{dev.title}</p>
                     <div className="dev-skills">
                       {dev.skills.map((skill, index) => (
-                        <span key={index} className="skill-tag">{skill}</span>
+                        <button key={index} className="skill-tag" onClick={(e) => handleSkillClick(e, skill)}>
+                          {skill}
+                        </button>
                       ))}
                     </div>
                   </div>
@@ -245,8 +421,8 @@ const FindDev = () => {
                 </div>
                 
                 <div className="dev-actions">
-                  <button className="hire-btn">🔗 Hire {dev.name.split(' ')[0]}</button>
-                  <button className="download-btn" onClick={() => downloadPDF(dev)}>⬇ Download PDF</button>
+                  <button className="hire-btn" onClick={(e) => { e.stopPropagation(); console.log(`Hiring ${dev.name}`); }}>🔗 Hire {dev.name.split(' ')[0]}</button>
+                  <button className="download-btn" onClick={(e) => { e.stopPropagation(); downloadPDF(dev); }}>⬇ Download PDF</button>
                 </div>
               </div>
             ))}
@@ -255,23 +431,23 @@ const FindDev = () => {
           <div className="pagination">
             <button 
               className={currentPage === 1 ? 'active' : ''}
-              onClick={() => setCurrentPage(1)}
+              onClick={() => handlePageChange(1)}
             >
               1
             </button>
             <button 
               className={currentPage === 2 ? 'active' : ''}
-              onClick={() => setCurrentPage(2)}
+              onClick={() => handlePageChange(2)}
             >
               2
             </button>
             <button 
               className={currentPage === 3 ? 'active' : ''}
-              onClick={() => setCurrentPage(3)}
+              onClick={() => handlePageChange(3)}
             >
               3
             </button>
-            <button onClick={() => setCurrentPage(Math.min(currentPage + 1, 3))}>»</button>
+            <button onClick={() => handlePageChange(Math.min(currentPage + 1, 3))}>»</button>
           </div>
         </main>
       </div>

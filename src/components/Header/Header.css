@@ -88,3 +88,17 @@
 .hire-btn:hover {
   background: #0056b3;
 }
+
+.hire-dev-btn {
+  background: #5271ff;
+  color: white !important;
+  padding: 12px 24px;
+  border-radius: 25px;
+  border: none;
+  font-weight: 500;
+}
+
+.hire-dev-btn:hover {
+  background: #4060e6;
+  color: white !important;
+}

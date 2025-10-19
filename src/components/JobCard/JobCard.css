@@ -2,10 +2,10 @@
   background: var(--bs-white);
   border-radius: 8px;
   padding: 20px;
-  border: 1px solid var(--bs-gray-300);
-  border-opacity: 0.3;
+  border: none;
   position: relative;
   transition: box-shadow 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
 .job-card:hover {
@@ -20,7 +20,7 @@
 }
 
 .job-title {
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   font-weight: 600;
   color: var(--bs-primary);
   margin-bottom: 5px;
@@ -40,7 +40,8 @@
 
 .job-experience {
   color: var(--bs-gray-500);
-  font-size: 0.9rem;
+  font-size: 1rem;
+  font-weight: 500;
   margin-bottom: 15px;
 }
 
@@ -53,8 +54,24 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 28px;
-  height: 28px;
+  width: 40px;
+  height: 40px;
+}
+
+.share-btn svg {
+  transform: scale(1.5);
+}
+
+.share-btn:hover {
+  background: none !important;
+  color: #000000 !important;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+.share-btn:hover svg {
+  color: #000000 !important;
+  fill: #000000 !important;
 }
 
 .job-tags {
@@ -69,8 +86,8 @@
   color: var(--bs-primary);
   padding: 6px 12px;
   border-radius: 15px;
-  font-size: 0.8rem;
-  font-weight: 500;
+  font-size: 0.95rem;
+  font-weight: 600;
 }
 
 .progress-bar {
@@ -83,7 +100,8 @@
 
 .auth-links {
   margin-bottom: 15px;
-  font-size: 0.9rem;
+  font-size: 1rem;
+  font-weight: 500;
 }
 
 .auth-links a {
@@ -106,13 +124,17 @@
   align-items: center;
   gap: 5px;
   color: var(--bs-gray-600);
-  font-weight: 500;
+  font-weight: 600;
+  font-size: 1rem;
 }
 
 .job-type-badge {
+  display: flex;
+  align-items: center;
+  gap: 5px;
   color: var(--bs-gray-600);
-  font-size: 0.9rem;
-  font-weight: 500;
+  font-size: 1rem;
+  font-weight: 600;
 }
 
 /* Mobile Responsive Styles */

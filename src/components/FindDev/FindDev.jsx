@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate, Link } from 'react-router-dom';
 import './FindDev.css';
 
 const FindDev = () => {
@@ -345,18 +345,18 @@ const FindDev = () => {
           <div className="hiring-resources">
             <h3>Hiring resources</h3>
             <ul>
-              <li><a href="#">Guide to Hiring devs (→)</a></li>
-              <li><a href="#">Job Template (→)</a></li>
-              <li><a href="#">Interview Questions (→)</a></li>
-              <li><a href="#">Common Mistakes (→)</a></li>
+              <li><Link to="/hiring-guide">Guide to Hiring devs (→)</Link></li>
+              <li><Link to="/job-template">Job Template (→)</Link></li>
+              <li><Link to="/interview-questions">Interview Questions (→)</Link></li>
+              <li><Link to="/common-mistakes">Common Mistakes (→)</Link></li>
             </ul>
           </div>
           
           <div className="need-help">
             <h3>Need help?</h3>
             <ul>
-              <li><a href="#">Book a meeting (→)</a></li>
-              <li><a href="#">Chat with an expert (→)</a></li>
+              <li><Link to="/book-meeting">Book a meeting (→)</Link></li>
+              <li><Link to="/chat-expert">Chat with an expert (→)</Link></li>
             </ul>
           </div>
         </aside>

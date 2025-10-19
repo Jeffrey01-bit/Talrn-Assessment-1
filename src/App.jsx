@@ -7,6 +7,10 @@ import Sidebar from './components/Sidebar/Sidebar';
 import Modal from './components/Modal/Modal';
 import FindDev from './components/FindDev/FindDev';
 import DeveloperProfile from './components/DeveloperProfile/DeveloperProfile';
+import HireDev from './components/HireDev/HireDev';
+import Login from './components/Login/Login';
+import Signup from './components/Signup/Signup';
+import NotFound from './components/NotFound/NotFound';
 import './styles/variables.css';
 import './styles/global.css';
 import { allJobs } from './data/jobsData';
@@ -297,6 +301,15 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/find-dev" element={<FindDev />} />
           <Route path="/developer/:id" element={<DeveloperProfile />} />
+          <Route path="/hire-dev" element={<HireDev />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/hiring-guide" element={<NotFound />} />
+          <Route path="/job-template" element={<NotFound />} />
+          <Route path="/interview-questions" element={<NotFound />} />
+          <Route path="/common-mistakes" element={<NotFound />} />
+          <Route path="/book-meeting" element={<NotFound />} />
+          <Route path="/chat-expert" element={<NotFound />} />
         </Routes>
         <Footer />
       </div>

@@ -26,6 +26,7 @@ const Sidebar = ({
       
       <div className="filter-section">
         <h3 className="filter-title">Sort & Filter</h3>
+        <div className="filter-section-divider"></div>
         
         <div className="date-filter">
           <h4><svg width="20" height="20" viewBox="0 0 24 24" fill="#5271ff" style={{marginRight: '8px'}}><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/></svg>Date Posted</h4>
@@ -169,13 +170,9 @@ const Sidebar = ({
                   }
                 }}
               >
-                <option value="0">0</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="10">10</option>
+                {Array.from({length: 31}, (_, i) => (
+                  <option key={i} value={i.toString()}>{i}</option>
+                ))}
               </select>
             </div>
             <div>
@@ -190,11 +187,9 @@ const Sidebar = ({
                   }
                 }}
               >
-                <option value="5">5</option>
-                <option value="10">10</option>
-                <option value="15">15</option>
-                <option value="20">20</option>
-                <option value="30">30</option>
+                {Array.from({length: 31}, (_, i) => (
+                  <option key={i} value={i.toString()}>{i}</option>
+                ))}
               </select>
             </div>
           </div>

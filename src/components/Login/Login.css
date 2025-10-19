@@ -1,0 +1,134 @@
+.login-container {
+  min-height: calc(100vh - 70px);
+  background-color: #f3fafe;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.login-card {
+  background: white;
+  padding: 48px;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-width: 500px;
+  text-align: center;
+}
+
+.login-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 32px;
+}
+
+.login-form {
+  margin-bottom: 24px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 16px;
+  border: 1px solid #e1e5e9;
+  border-radius: 8px;
+  font-size: 16px;
+  background-color: #f8f9fa;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #5271ff;
+  background-color: white;
+}
+
+.password-group {
+  position: relative;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.continue-btn {
+  width: 100%;
+  background: #5271ff;
+  color: white;
+  border: none;
+  padding: 16px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.continue-btn:hover {
+  background: #4056d6;
+}
+
+.forgot-password {
+  color: #5271ff;
+  text-decoration: none;
+  font-size: 14px;
+  margin-bottom: 24px;
+  display: block;
+  font-weight: bold;
+}
+
+.forgot-password:hover {
+  text-decoration: underline;
+}
+
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.signup-link {
+  color: #6c757d;
+  font-size: 14px;
+  margin: 16px 0 8px 0;
+  text-align: center;
+}
+
+.signup-link a {
+  color: #5271ff;
+  text-decoration: none;
+}
+
+.signup-link a:hover {
+  text-decoration: underline;
+}
+
+.contact-link {
+  color: #6c757d;
+  font-size: 14px;
+  text-align: center;
+}
+
+.contact-link a {
+  color: #5271ff;
+  text-decoration: none;
+}
+
+.contact-link a:hover {
+  text-decoration: underline;
+}
